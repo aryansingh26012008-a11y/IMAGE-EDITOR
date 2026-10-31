@@ -1,2 +1,20 @@
 # IMAGE-EDITOR
 A browser-based image editor built with JavaScript and HTML Canvas. Upload an image, adjust brightness, contrast, saturation, hue, blur, grayscale, sepia, opacity, and inversion with interactive sliders, then reset your edits or download the finished image as a PNG. No extra software required—edit images right in your browser.
+
+<img width="886" height="793" alt="image" src="https://github.com/user-attachments/assets/879e94c4-9c5c-48af-8345-898794a6aa28" />
+
+This project is a browser-based image editor built with HTML, CSS, and vanilla JavaScript. It lets you choose an image from your device, adjust its appearance with a set of visual filters, preview the changes, reset the adjustments, and download the finished image as a PNG. The project is designed as a practical, interactive way to explore front-end development and image editing with the HTML Canvas API.
+
+The interface is organized into two main areas. The larger preview area on the left contains the image controls and canvas, while a separate panel on the right displays the available filters. Before an image is selected, the preview area shows a placeholder with an image icon and a short message. After you choose a file, the placeholder is replaced by the image preview. The layout uses spacing, rounded corners, and distinct panels to make the editing controls and preview easy to distinguish.
+
+The visual style uses a dark background with lighter text and a darker secondary shade for the preview and filter panels. CSS custom properties define the theme colors, spacing, margins, font sizes, and corner radii, helping keep the design consistent and making it easier to adjust the appearance. The controls use color to communicate their purpose: the image selection control has an active style, Reset is highlighted in red, and Download is highlighted in green. The buttons have rounded edges and a pointer cursor to make them feel interactive.
+
+The placeholder uses the Remix Icon library, loaded through its CDN stylesheet. In particular, the `ri-image-line` icon provides a simple outline-style image symbol. Its large size and subdued opacity make it a clear visual cue when the canvas is empty without drawing too much attention away from the editor. The icon is placed beside the placeholder message and centered in the preview area.
+
+The filter panel is created dynamically with JavaScript rather than writing each slider separately in the HTML. Each filter has a range input with its own minimum, maximum, starting value, and unit. The available adjustments include brightness, contrast, saturation, hue rotation, blur, grayscale, sepia, opacity, and inversion. As you move a slider, the editor updates the corresponding filter value and redraws the image on the canvas, so you can see the effect while editing.
+
+The image is loaded from the selected local file using a browser-generated object URL. JavaScript sets the canvas dimensions to match the image and draws it using the Canvas 2D context. The filter values are combined into a CSS filter string and applied to the canvas before the image is drawn. This keeps the editing workflow in the browser and allows the result to be exported from the canvas without uploading the image to a server.
+
+The Reset button restores the filters to their default values and recreates the slider controls. The Download button converts the current canvas image to PNG data and triggers a download named `edited-image.png`. Together, these features make it possible to move from selecting an image to saving an edited copy using a straightforward interface.
+
+The project is also useful for learning how HTML, CSS, and JavaScript work together. It demonstrates selecting DOM elements, listening for file and input events, creating interface elements programmatically, managing filter settings, loading images, rendering to canvas, and exporting an image. The code is divided into separate files for page structure, styling, theme variables, and editor behavior, making the project easier to read, understand, and customize.
